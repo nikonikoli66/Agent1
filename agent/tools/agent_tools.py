@@ -22,7 +22,61 @@ def rag_summarize(query: str) -> str:
 
 @tool(description="获取指定城市的天气，以消息字符串的形式返回")
 def get_weather(city: str) -> str:
-    return f"城市{city}天气为暴雨冰雹，气温6摄氏度，空气湿度95%，南风10级，AQI21，最近6小时停雨概率极低"
+    """
+    使用高德地图API获取实时天气数据
+    需要先设置环境变量 AMAP_API_KEY 或在config中配置API Key
+    """
+    import requests
+    import os
+
+    # 从环境变量或配置文件获取API Key
+    api_key = os.environ.get("AMAP_API_KEY")
+    if not api_key:
+        # 如果没有环境变量，尝试从配置文件读取
+        try:
+            from utils.config_handler import agent_conf
+            api_key = agent_conf.get("amap_api_key")
+        except:
+            api_key = None
+
+    if not api_key:
+        return f"城市{city}天气获取失败：未配置高德地图API Key"
+
+    try:
+        # 高德天气API
+        url = "https://restapi.amap.com/v3/weather/weatherInfo"
+        params = {
+            "key": api_key,
+            "city": city,
+            "extensions": "base",  # all:预报+实况, base:实况
+            "output": "JSON"
+        }
+
+        response = requests.get(url, params=params, timeout=5)
+        response.raise_for_status()
+        data = response.json()
+
+        if data.get("status") == "1" and data.get("lives"):
+            weather_data = data["lives"][0]
+
+            # 解析天气数据
+            weather = weather_data.get("weather", "")
+            temperature = weather_data.get("temperature", "")
+            humidity = weather_data.get("humidity", "")
+            wind_direction = weather_data.get("winddirection", "")
+            wind_power = weather_data.get("windpower", "")
+            report_time = weather_data.get("reporttime", "")
+
+            return f"城市{city}天气为{weather}，气温{temperature}摄氏度，空气湿度{humidity}%，{wind_direction}{wind_power}，数据更新时间：{report_time}"
+        else:
+            return f"城市{city}天气获取失败：{data.get('info', '未知错误')}"
+
+    except requests.exceptions.RequestException as e:
+        logger.error(f"[get_weather]请求高德API失败：{e}")
+        return f"城市{city}天气获取失败：网络连接错误"
+    except Exception as e:
+        logger.error(f"[get_weather]处理天气数据失败：{e}")
+        return f"城市{city}天气获取失败：数据处理错误"
 
 
 @tool(description="获取用户所在城市的名称，以纯字符串形式返回")

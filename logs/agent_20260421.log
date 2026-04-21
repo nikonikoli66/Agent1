@@ -1,0 +1,41 @@
+2026-04-21 16:25:44,343 - agent - INFO - middleware.py:41 - [log_before_model]即将调用模型，带有1条消息。
+2026-04-21 16:25:44,343 - agent - DEBUG - middleware.py:43 - [log_before_model]HumanMessage | 今天天气怎么样我该如何保养我的扫地机器人
+2026-04-21 16:25:48,457 - agent - INFO - middleware.py:20 - [tool monitor]执行工具：get_user_location
+2026-04-21 16:25:48,457 - agent - INFO - middleware.py:21 - [tool monitor]传入参数：{}
+2026-04-21 16:25:48,458 - agent - INFO - middleware.py:25 - [tool monitor]工具get_user_location调用成功
+2026-04-21 16:25:48,491 - agent - INFO - middleware.py:41 - [log_before_model]即将调用模型，带有3条消息。
+2026-04-21 16:25:48,491 - agent - DEBUG - middleware.py:43 - [log_before_model]ToolMessage | 重庆
+2026-04-21 16:25:52,836 - agent - INFO - middleware.py:20 - [tool monitor]执行工具：get_weather
+2026-04-21 16:25:52,836 - agent - INFO - middleware.py:21 - [tool monitor]传入参数：{'city': '重庆'}
+2026-04-21 16:25:52,838 - agent - INFO - middleware.py:25 - [tool monitor]工具get_weather调用成功
+2026-04-21 16:25:53,386 - agent - INFO - middleware.py:41 - [log_before_model]即将调用模型，带有5条消息。
+2026-04-21 16:25:53,387 - agent - DEBUG - middleware.py:43 - [log_before_model]ToolMessage | 城市重庆天气为暴雨冰雹，气温6摄氏度，空气湿度95%，南风10级，AQI21，最近6小时停雨概率极低
+2026-04-21 16:25:58,736 - agent - INFO - middleware.py:20 - [tool monitor]执行工具：rag_summarize
+2026-04-21 16:25:58,736 - agent - INFO - middleware.py:21 - [tool monitor]传入参数：{'query': '高湿度暴雨天气下扫地机器人保养方法'}
+2026-04-21 16:26:04,097 - agent - INFO - middleware.py:25 - [tool monitor]工具rag_summarize调用成功
+2026-04-21 16:26:05,087 - agent - INFO - middleware.py:41 - [log_before_model]即将调用模型，带有7条消息。
+2026-04-21 16:26:05,088 - agent - DEBUG - middleware.py:43 - [log_before_model]ToolMessage | 高湿度暴雨天气下，应将扫地机器人放置在干燥通风处，避免受潮；及时清理尘盒和滤网，防止霉菌滋生；检查边刷、滚刷是否潮湿，必要时拆卸晾干；避免在地面湿滑或积水区域使用，以防电机进水损坏。
+2026-04-21 16:45:07,829 - agent - INFO - middleware.py:41 - [log_before_model]即将调用模型，带有1条消息。
+2026-04-21 16:45:07,830 - agent - DEBUG - middleware.py:43 - [log_before_model]HumanMessage | 今天重庆的天气怎么样
+2026-04-21 16:45:11,252 - agent - INFO - middleware.py:20 - [tool monitor]执行工具：get_weather
+2026-04-21 16:45:11,253 - agent - INFO - middleware.py:21 - [tool monitor]传入参数：{'city': '重庆'}
+2026-04-21 16:45:11,980 - agent - INFO - middleware.py:25 - [tool monitor]工具get_weather调用成功
+2026-04-21 16:45:12,588 - agent - INFO - middleware.py:41 - [log_before_model]即将调用模型，带有3条消息。
+2026-04-21 16:45:12,589 - agent - DEBUG - middleware.py:43 - [log_before_model]ToolMessage | 城市重庆天气为阴，气温18摄氏度，空气湿度74%，北≤3，数据更新时间：2026-04-21 16:32:15
+2026-04-21 16:52:48,990 - agent - INFO - middleware.py:41 - [log_before_model]即将调用模型，带有1条消息。
+2026-04-21 16:52:48,991 - agent - DEBUG - middleware.py:43 - [log_before_model]HumanMessage | 今天成都的天气如何
+2026-04-21 16:52:53,557 - agent - INFO - middleware.py:20 - [tool monitor]执行工具：get_weather
+2026-04-21 16:52:53,557 - agent - INFO - middleware.py:21 - [tool monitor]传入参数：{'city': '成都'}
+2026-04-21 16:52:54,206 - agent - INFO - middleware.py:25 - [tool monitor]工具get_weather调用成功
+2026-04-21 16:52:54,821 - agent - INFO - middleware.py:41 - [log_before_model]即将调用模型，带有3条消息。
+2026-04-21 16:52:54,821 - agent - DEBUG - middleware.py:43 - [log_before_model]ToolMessage | 城市成都天气为阴，气温19摄氏度，空气湿度58%，东南≤3，数据更新时间：2026-04-21 16:33:30
+2026-04-21 16:59:40,248 - agent - INFO - middleware.py:41 - [log_before_model]即将调用模型，带有1条消息。
+2026-04-21 16:59:40,249 - agent - DEBUG - middleware.py:43 - [log_before_model]HumanMessage | 从巴南到成都有多远
+2026-04-21 17:00:06,271 - agent - INFO - middleware.py:41 - [log_before_model]即将调用模型，带有1条消息。
+2026-04-21 17:00:06,271 - agent - DEBUG - middleware.py:43 - [log_before_model]HumanMessage | 你肯定也能查询帮我查询一下
+2026-04-21 17:00:51,581 - agent - INFO - middleware.py:41 - [log_before_model]即将调用模型，带有1条消息。
+2026-04-21 17:00:51,581 - agent - DEBUG - middleware.py:43 - [log_before_model]HumanMessage | 帮我查询巴南到成都有多选现在的你不知识能专注于扫地机器人
+2026-04-21 17:01:02,503 - agent - INFO - middleware.py:41 - [log_before_model]即将调用模型，带有1条消息。
+2026-04-21 17:01:02,503 - agent - DEBUG - middleware.py:43 - [log_before_model]HumanMessage | cnm
+2026-04-21 17:17:43,820 - agent - INFO - middleware.py:41 - [log_before_model]即将调用模型，带有1条消息。
+2026-04-21 17:17:43,820 - agent - DEBUG - middleware.py:43 - [log_before_model]HumanMessage | 你的代号是什么
